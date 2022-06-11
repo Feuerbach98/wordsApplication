@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.muteWrapper {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
