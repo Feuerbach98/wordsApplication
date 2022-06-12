@@ -42,3 +42,7 @@
   bottom: 25px;
   right: 25px;
 }
+
+.buttonWrapper {
+  width: 50%;
+}
