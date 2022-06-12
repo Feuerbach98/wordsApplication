@@ -30,6 +30,7 @@ function App() {
   const [wordIndex, setWordIndex] = useState(randomInteger(0, words.length - 1));
   const [currentColor, setCurrentColor] = useState(COLORS.default);
   const [mute, setMute] = useState(true);
+  const [lastWasWrong, setLastWasWrong] = useState(false);
 
 
   useEffect(() => {
@@ -39,10 +40,16 @@ function App() {
   function handleClick(i: number) {
     if (checkAnswer(i)) {
       setCurrentColor(() => COLORS.true)
+      setNewWord()
     } else {
       setCurrentColor(() => COLORS.wrong)
+      setLastWasWrong(() => true)
     }
+  }
 
+  function handleGotIt() {
+    setLastWasWrong(() => false)
+    setCurrentColor(() => COLORS.default)
     setNewWord()
   }
 
@@ -113,16 +120,19 @@ function App() {
         </div>
         <Icon style={{fill: currentColor, transition: "0.5s"}} className="App-logo"/>
         <h2>{words[wordIndex].word}</h2>
-        <Box style={{minWidth: "90%"}} component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
-          {answerIndexes.slice(0, 2).map((el, i) => (
-            <Button key={i} style={{minWidth: "50%", minHeight: "40px"}} sx={{ m: 0.5}} onClick={() => handleClick(el)} variant="outlined">{words[el].translation}</Button>
-          ))}
-        </Box>
-        <Box style={{minWidth: "90%"}} component="div" sx={{ display: 'flex', justifyContent: 'center' }}>
-          {answerIndexes.slice(2, 4).map((el, i) => (
-            <Button key={i} style={{minWidth: "50%", minHeight: "40px"}} sx={{ m: 0.5}} onClick={() => handleClick(el)} variant="outlined">{words[el].translation}</Button>
-          ))}
-        </Box>
+        {!lastWasWrong ?
+        <>
+          <Box style={{minWidth: "90%"}} component="div" sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+            {answerIndexes.map((el, i) => (
+              <Button key={i} size="small" style={{ minHeight: "40px"}} sx={{ m: 0.5}} onClick={() => handleClick(el)} variant="contained">{words[el].translation}</Button>
+            ))}
+          </Box>
+        </> :
+        <>
+          <h3>{words[wordIndex].translation}</h3>
+          <Button style={{minWidth: "50%", minHeight: "40px"}} sx={{ m: 0.5}} onClick={() => handleGotIt()} variant="outlined">Got it!</Button>
+        </>
+        }
       </header>
     </div>
   );
