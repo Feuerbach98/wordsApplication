@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/wordsApplication/static/css/main.4fefc980.css",
-    "main.js": "/wordsApplication/static/js/main.579b64db.js",
+    "main.css": "/wordsApplication/static/css/main.4fbf1b37.css",
+    "main.js": "/wordsApplication/static/js/main.4176ec62.js",
     "static/js/787.f816586a.chunk.js": "/wordsApplication/static/js/787.f816586a.chunk.js",
     "static/media/logo.svg": "/wordsApplication/static/media/logo.193714bffb88b5fce37116cfd1c11e8e.svg",
     "index.html": "/wordsApplication/index.html",
-    "main.4fefc980.css.map": "/wordsApplication/static/css/main.4fefc980.css.map",
-    "main.579b64db.js.map": "/wordsApplication/static/js/main.579b64db.js.map",
+    "main.4fbf1b37.css.map": "/wordsApplication/static/css/main.4fbf1b37.css.map",
+    "main.4176ec62.js.map": "/wordsApplication/static/js/main.4176ec62.js.map",
     "787.f816586a.chunk.js.map": "/wordsApplication/static/js/787.f816586a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fefc980.css",
-    "static/js/main.579b64db.js"
+    "static/css/main.4fbf1b37.css",
+    "static/js/main.4176ec62.js"
   ]
 }
